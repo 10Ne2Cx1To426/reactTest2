@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ColorfulMessage } from "./components/ColorfulMessage";
 
 export const App = () => {
@@ -11,6 +11,14 @@ export const App = () => {
   const onClickChange = () => {
     setfaceShowFlag(!faceShowFlag);
   };
+
+  useEffect(() => {
+    if (num % 3 === 0) {
+      faceShowFlag || setfaceShowFlag(true);
+    } else {
+      faceShowFlag && setfaceShowFlag(false);
+    }
+  }, [num]);
   return (
     <>
       <h1 style={{ color: "red" }}>こんにちは</h1>
